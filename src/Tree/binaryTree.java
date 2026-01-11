@@ -74,6 +74,19 @@ public class binaryTree {
      }
      return 0;
  }
+ int leafNodes(Node root){
+     int x,y;
+     if(root!=null){
+         x=leafNodes(root.left);
+         y=leafNodes(root.right);
+         if(root.left == root.right && root.right == null){
+             return x+y+1;
+         }
+         else{
+             return x+y;
+         }
+     }return 0;
+ }
     public static void main(String[] args) {
         binaryTree tree = new binaryTree();
         tree.root = new Node(1);
@@ -88,5 +101,6 @@ public class binaryTree {
         System.out.println("Number of Nodes in this tree is " + tree.countNodes(tree.root));
         System.out.println("The number of two pair nodes is "+ tree.pairNodes(tree.root));
         System.out.println("The height of tree is "+ tree.height(tree.root));
+        System.out.println("The Leaf Nodes of tree is " + tree.leafNodes(tree.root));
  }
 }
